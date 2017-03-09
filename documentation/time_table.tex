@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+
+\title{Die Geheimnisse von der Berechnung von Stundenplänen}
+\date{2017-01-20}
+\author{Bernd Schröder}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\pagenumbering{arabic}
+
+\section{Problembeschreibung}
+Basierend auf der Hauptbedingung und den Randbedingungen ist ein Algorithmus zu entwickeln, der es ermöglicht, Lösungen für einen Stundenplan vorzuschlagen, die sich der Hauptbedingung und den Randbedingungen annähern.
+
+\subsection{Lösungsansatz}
+Definiert man die Klasse, die Lehrkraft sowie den Raum als Ressourcen, so müssen zu einem bestimmten Zeitpunkt alle Ressourcen exklusiv zu einer Unterrichtsstunde zur Verfügung stehen.
+
+
+
+\subsubsection{Subsubsection}
+Randbedingungen
+
+Alle Randbedingungen sind in der Regel nicht zu erfüllen. Deshalb ist es entscheidend, die Menge der Lösungen nach der Abhängigkeit der Priorität der Randbedingungen zu sortieren.
+
+    Grundschulen dürfen keine unbelegten Stunden im Unterrichtsplan haben
+    Hauptfächer sollten am Anfang des Tages liegen, praktische Fächer am Ende des Tages
+    Es gibt Unterrichtseinheiten, die zu Doppelstunden gekoppelt sind
+    Für einige Unterrichtsstunden steht nur ein exklusiver Raum zur Verfügung
+    Der Stundenplan der Lehrer sollte keine Freistunden aufweisen
+
+
+More text.
+
+\begin{table}[h!]
+  \centering
+  \caption{Caption for the table.}
+  \label{tab:table1}
+  \begin{tabular}{l|c||r}
+    1 & 2 & 3\\
+    \hline
+    a & b & c\\
+  \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+  \centering
+  \caption{Caption for the table.}
+  \label{tab:table1}
+  \begin{tabular}{ccc}
+    \toprule
+    Some & actual & content\\
+    \midrule
+    prettifies & the & content\\
+    as & well & as\\
+    using & the & booktabs package\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+
+\end{document}
