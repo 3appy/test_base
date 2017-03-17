@@ -25,10 +25,10 @@ require('general/send_receive_button.php');
 
 $lang['C3_form_header']   = 'Exportiere CSV-Datei';
 $lang['C3_0_1']           =
-'<br />Eine CSV ( comma seperated values ) Datei ist eine einfache Textdatei, bei der die Werte einfach durch Semikolons getrennt sind. 
+'<br />Eine CSV ( comma seperated values ) Datei ist eine einfache Textdatei, bei der die Werte einfach durch Semikolons getrennt sind.
 Du kannst den Status deiner Organisation einfach in eine CSV Datei herauslesen. Diese wird in deinem pers&#246nlichem Profil gespeichert.
 Diese Datei kannst du dann so ver&#228ndern, bis sie deiner gew&#252nschten Organisation enspricht. &#220ber den CSV Import kannst du sie
-wieder einlesen. Alle &#196nderungen werden dann auf der Datenbank nachgezogen';
+wieder einlesen. Alle &#196nderungen werden dann auf der Datenbank nachgezogen.';
 
 
 $lang['C3_1_0']           = 'Exportiere Schulstruktur';

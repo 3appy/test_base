@@ -74,8 +74,10 @@ class team_list_csv
      */
     public function set_binding()
     {
-     $id = $this->get_owner_id();
-     $this->stmt->bind_param('is', $id, $this->team_name );
+    $id = $this->get_owner_id();
+    $name = $this->team_name;
+    
+    $this->stmt->bind_param('is', $id, $name );
     }
     /**
      *
@@ -97,6 +99,7 @@ class team_list_csv
     public function get_team()
     {
      $this->load();
+     
      if( $this->get_item_count() > (int)0 ) 
      { return $this->get_item( (int)0 ); }
      else

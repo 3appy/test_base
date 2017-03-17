@@ -13,168 +13,188 @@ require('menue_includes/C_top_menue.php');
 require('menue_includes/C_right_menue.php');
 require('general/send_receive_button.php');
 
-$lang['C3_userfile_disk'] = 'Datei vom Computer';
+$lang['C3_userfile_disk'] = 'File from the computer';
 
-$lang['C3_form_header']   = 'Importiere CSV-Datei';
+$lang['C3_form_header']   = 'Import CSV file';
 $lang['C3_0_1']           =
-'<br />Eine CSV ( comma seperated values ) ist eine einfache Textdatei, bei dem die Werte einfach durch Semikolons getrennt sind. Du kannst einen einfachen Editor
-nehmen, oder du benutzt ein Tabellenkalkulations Programm und speichert die Datei als CSV ab. Wichtig ist, das der Aufbau der jeweiligen Beispieldatei identisch ist';
+'<br />A CSV (comma seperated values) is a simple text file, in which the values are simply separated by semicolons. You can create a simple editor
+, Or you use a spreadsheet program and save the file as CSV. It is important that the structure of the respective sample file is identical.
+If special characters are used, the file must be saved in UTF-8 format.';
 
-
-
-$lang['C3_1_0']           = 'Importier Schulstruktur';
-$lang['C3_1_1']           = 'Alle Klassen, F&#228cher, Eltern- und Lehrergruppen k&#246nnen hier importiert werden.';
+$lang['C3_1_0']           = 'Import school structure';
+$lang['C3_1_1']           = 'All classes - , subjects - , parent -  and teacher - groups can be imported here.';
 $lang['C3_1_2']           =
-'<b>[Elterngruppe; Gruppe; Gruppentyp]</b> <br />
-Jede einzelne Gruppe muss einzelnd eingegeben werden. Im Beispiel besitzt die Gruppe Schule 2 Untergruppen mit dem
-Namen Klasse1 und Klasse2, Klasse1 besitzt wiederum 2 Untergruppen mit dem Namen Mathe und Englisch. Wir unterscheiden
-zwischen einer organisatorischen Gruppe [2], und einer p&#228dagogischen Gruppe [3].<br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
+'<b>[ topgroup; group; grouptye ]</b> <br />
+Each individual group must be entered individually. In this example, the group my school has 2 subgroups named 
+Class1 and Class2, Class1 again has two subgroups named Math and English. We differ
+between an organizational group [2], and a pedagogical group [3]. <br /> <br />
+The file you upload will be saved in your profile.';
 
-$lang['C3_1_3']           = 'Beispiel einer Schulstruktur csv - Datei';
+$lang['C3_1_3']           = 'Example of a school structure csv file';
 $lang['C3_1_4']           =
-'Schule;Klasse1;2
-Schule;Klasse2;2
-Klasse1;Mathe;3
-Klasse1;Englisch;3
+'my school;Class1;2
+my school;Class2;2
+Class1;Math;3
+Class1;English;3
 ';
-$lang['C3_1_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_1_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_1_5_2']         = '<br /><br /> Durch erneutes aktivieren des "senden" buttons werden die Objekte erzeugt und du wirst als Admin eingetragen';
-$lang['C3_1_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_1_5_0']         = 'Problems in line: ';
+$lang['C3_1_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_1_5_2']         = 
+'<br /><br /> By activating the "send" button, the objects will be created and you are entered as admin.
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_1_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_2_0']           = 'Importier R&#228ume';
-$lang['C3_2_1']           = 'Alle R&#228ume der Schule k&#246nnen hier importiert werden.';
+$lang['C3_2_0']           = 'Import rooms';
+$lang['C3_2_1']           = 'All rooms of the school can be imported here.';
 $lang['C3_2_2']           =
-'<b>[Raum;Beschreibung]</b><br />
-Jeder Raum wird durch eine Kurzbezeichnung definiert werden. Diese Kurzbezeichnung wird sp&#228ter im
-Stundenplan mit angezeigt. <br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_2_3']           = 'Beispiel einer Stundenplan csv - Datei';
+'<b>[ room; description ]</b><br />
+Each room is defined by a short description. 
+This short description will be displayed later in the timetable. <br /><br />
+The file you upload will be saved in your profile.';
+
+$lang['C3_2_3']           = 'Example of a room csv file';
 $lang['C3_2_4']           =
-'K1;Klassenraum der 1. Klasse
-K2;Klassenraum der 2. Klasse
-K3;Klassenraum der 3. Klasse
+'C1; Classroom of 1. class
+C2; Classroom of 2. class
+C3; Classroom of 3. class
 ';
-$lang['C3_2_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_2_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_2_5_2']         = '';
-$lang['C3_2_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_2_5_0']         = 'Problems in line: ';
+$lang['C3_2_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_2_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_2_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_3_0']           = 'Importier Stundenplan';
-$lang['C3_3_1']           = 'Alle Schulstunden der einzelnen F&#228chern k&#246nnen hier importiert werden.';
+$lang['C3_3_0']           = 'Import timetable';
+$lang['C3_3_1']           = 'All school lessons of the individual subjects can be imported here.';
 $lang['C3_3_2']           =
-'<b>[Klasse;Fach;Startwoche;Raum;Startjahr;Endwoche;Endjahr;Tag;Stunde]</b><br />
-Jede einzelne Stunde muss einzelnd eingegeben werden. Im Beispiel besitzt das Fach Mathe 5 Wochenstunden. <br /><br />
-In der organisatorische Gruppe von Klasse1 existiert die p&#228dagogische Gruppe Mathe.
-Die erste Schulstunde ist von Woche 35 im Jahr 2016 bis Woche 29 im Jahr 2017 definiert, den ersten Tag der Woche ( Montag )
-in der 4. Stunde. Alle weitern Mathestunden sind analog zu definieren. <br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_3_3']           = 'Beispiel einer Stundenplan csv - Datei';
+'<b>[ class; subject; room; starting week; starting year; final week; final year; day; hour ]</b><br />
+Each individual hour must be entered individually. In the example, the math timetable of class 1 has 5 hours per week. <br /> <br />
+In the organizational group of class1 exist the educational group math.
+The first school lesson is defined from week 35 in 2016 up to week 29 in 2017, the first day of the week (monday)
+in the 4th hour. All further math lessons have to be defined analogously. <br /><br />
+The file you upload will be saved in your profile.';
+$lang['C3_3_3']           = 'Example of a timetable csv file';
 $lang['C3_3_4']           =
-'Klasse1;Mathe;K1;35;2016;29;2017;1;4
-Klasse1;Mathe;K1;35;2016;29;2017;1;5
-Klasse1;Mathe;K1;35;2016;29;2017;2;2
-Klasse1;Mathe;K1;35;2016;29;2017;3;4
-Klasse1;Mathe;K1;35;2016;29;2017;4;1
+'class1;math;C1;35;2016;29;2017;1;4
+class1;math;C1;35;2016;29;2017;1;5
+class1;math;C1;35;2016;29;2017;2;2
+class1;math;C1;35;2016;29;2017;3;4
+class1;math;C1;35;2016;29;2017;4;1
 ';
-$lang['C3_3_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_3_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_3_5_2']         = '';
-$lang['C3_3_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_3_5_0']         = 'Problems in line: ';
+$lang['C3_3_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_3_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_3_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_4_0']           = 'Importier Mitglieder';
-$lang['C3_4_1']           = 'Alle Mitglieder k&#246nnen hier importiert werden.';
+$lang['C3_4_0']           = 'Import members';
+$lang['C3_4_1']           = 'All members can be imported here.';
 $lang['C3_4_2']           =
-'<b>[Vorname;Nachname;Email;Passwort]</b> <br />
-Das System ben&#246gt eigentlich nur den Vornamen, den Nachnamen und die Email - Adresse.
-Das vom System generierte Password wird dann zur angegebenen Email - Adresse verschickt.
-Ist die Email - Adresse keine reale Adresse, so braucht das Profil ein tempor&#228res Passwort.<br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_4_3']           = 'Beispiel einer Administratoren csv - Datei';
+'<b>[ firstname, surname, email, password ]</b> <br />
+The system needs only the first name, the last name and the email address.
+The system generated password will be sent to the specified e-mail address.
+If the email address is not a correct email address, character "@" is missing, 
+the profile needs a temporary password.<br /><br />
+The file you upload will be saved in your profile.';
+$lang['C3_4_3']           = 'Example of a member csv file';
 $lang['C3_4_4']           =
-'Vorname;Nachname;Vorname_Nachname@3appy.com;Vorname_Nachname@3appy.com
-Vorname;Nachname;Vorname_Nachname@3appy.com;Vorname_Nachname@3appy.com
-Vorname;Nachname;Vorname_Nachname@3appy.com;Vorname_Nachname@3appy.com
-Vorname;Nachname;Vorname_Nachname@3appy.com;Vorname_Nachname@3appy.com
+'firstname1;surname1; my@test.xx; your_password
+firstname2;surname2; your@email.com; XXX
 ';
-$lang['C3_4_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_4_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_4_5_2']         = '<br /><br /> Durch erneutes aktivieren des "senden" buttons werden die Objekte erzeugt und du wirst als Admin eingetragen';
-$lang['C3_4_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_4_5_0']         = 'Problems in line: ';
+$lang['C3_4_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_4_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_4_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_5_0']           = 'Verbinde Administratoren';
-$lang['C3_5_1']           = 'Alle Administratoren (Schulpersonal) k&#246nnen hier mit den ensprechenden Gruppen verbunden werden.';
+$lang['C3_5_0']           = 'Import teacher-groups connections';
+$lang['C3_5_1']           = 'All teachers and administrators (school staff) can be connected to the appropriate groups.';
 $lang['C3_5_2']           =
-'<b>[Schule; Klasse / Gruppe; Admin]</b> |  <b>[Klasse; Fach; Admin]</b> <br />
-Der Administrator einer Schule sollte eine bevollm&#228chtigte Person wie Schulleiter oder IT-Person sein.
-Der Administrator einer Klasse ist in der Regel der Klassenlehrer, der Administrator eines Faches ist der
-entsprechende Fachlehrer. Dabei k&#246nnen auch mehrere Lehrer ( Administratoren ) einer Gruppe zugewiesen werden
-Als eindeutige Identifikation wird hier die Email Adresse des Administrators eingegeben. <br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_5_3']           = 'Beispiel einer Administratoren csv - Datei';
+'<b>[ topgroup; group; email ]</b> <br />
+The administrator of a school should be an authorized person such as headmaster or IT resonsible person.
+The administrator of a class is usually the class teacher, the administrator of a subject is the appropriate 
+specialist teacher. Several teachers (administrators) can also be assigned to a group.
+This, however, is blocked in the top group, the school.
+The email of the administrator is entered as a unique identification. <br /><br />
+The file you upload will be saved in your profile.';
+$lang['C3_5_3']           = 'Example of a teacher-groups connections csv file';
 $lang['C3_5_4']           =
-'Schule;Klasse1;email@Lehrer
-Schule;Klasse2;email@Lehrer2
-Klasse1;Mathe;email@Lehrer1
-Klasse1;Englisch;email@Lehrer2
+'school;class1;email@teacher
+school;class2;email@teacher2
+class1;math;email@teacher1
+class1;english;email@teacher2
 ';
-$lang['C3_5_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_5_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_5_5_2']         = '<br /><br /> Durch erneutes aktivieren des "senden" buttons werden die Objekte erzeugt und du wirst als Admin eingetragen';
-$lang['C3_5_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_5_5_0']         = 'Problems in line: ';
+$lang['C3_5_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_5_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_5_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_6_0']           = 'Verbinde Mitglieder';
-$lang['C3_6_1']           = 'Alle Mitglieder (Eltern, Sch&#252ler) k&#246nnen hier mit den ensprechenden Gruppen verbunden werden.';
+$lang['C3_6_0']           = 'Import member-groups connections';
+$lang['C3_6_1']           = 'All members (parents, pupil) can be connected to the appropriate groups.';
 $lang['C3_6_2']           =
-'<b>[Schule; Klasse / Gruppe; Mitglied]</b> | <b>[Klasse; Fach; Mitglied]</b> <br />
-Die Miglieder einer Gruppe werden unter der Schule einer Klasse oder Gruppe zugewiesen, dieses k&#246nnten z. Bsp. Sch&#252ler,
-Eltern oder Projektbeteiligte sein. Diese Zuweisung kann man auch f&#252r F&#228cher oder andere Untergruppen vornehmen. Der Schule
-und den Gruppen oder F&#228chern kann man n Mitglieder zuweisen, diese m&#252ssen jedoch einzelnd aufgef&#252hrt werden.
-Als eindeutige Identifikation wird hier die Email Adresse des Mitgliedes eingegeben.<br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_6_3']           = 'Beispiel einer Mitglieder csv - Datei';
+'<b>[ topgroup; group; email ]</b> <br />
+The members of a group are assigned to a class or group.
+These may be pupils, parents or project participants.
+This, however, is blocked in the top group, the school.
+The email of the member is entered as a unique identification. <br /><br />
+The file you upload will be saved in your profile.';
+$lang['C3_6_3']           = 'Example of a member-groups connections csv file';
 $lang['C3_6_4']           =
-'Schule;Klasse1;email@Mitglied1
-Schule;Klasse2;email@Mitglied2
-Klasse1;Mathe;email@Mitglied1
-Klasse1;Englisch;email@Mitglied1
+'school;class1;email@member1
+school;class2;email@member2
+class1;math;email@member1
+class1;english;email@member1
 ';
-$lang['C3_6_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_6_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_6_5_2']         = '<br /><br /> Durch erneutes aktivieren des "senden" buttons werden die Objekte erzeugt und du wirst als Admin eingetragen';
-$lang['C3_6_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_6_5_0']         = 'Problems in line: ';
+$lang['C3_6_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_6_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_6_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
-$lang['C3_7_0']           = 'Importier Verbindungen';
-$lang['C3_7_1']           = 'Alle Verbindungen von Eltern zu Sch&#252lern k&#246nnen hier importiert werden.';
+$lang['C3_7_0']           = 'Import member-member connections';
+$lang['C3_7_1']           = 'All connections from parents to pupils can be imported here.';
 $lang['C3_7_2']           =
-'<b>[Email Elternteil;Email Sch&#252ler]</b> <br />
-Die Verbindung zwischen einem Elternprofil und einem Sch&#252lerprofil kann hier vorgenommen werden.
-Dabei reicht es aus die Email des Elternprofils mit der Email des Sch&#252lerprofils in einer Reihe
-zu definieren.<br /><br />
-Die Datei, die du jetzt hochl&#228dst wird zus&#228tzlich in deinem Profil gespeichert.';
-$lang['C3_7_3']           = 'Beispiel einer Verbindungen csv - Datei';
+'<b>[ email@parents; email@pupil ]</b> <br />
+The connection between a parent profile and the pupil profile can be made here. 
+It is enough to define the email of the parent profile with the email of the pupil profile.<br /><br />
+The file you upload will be saved in your profile.';
+$lang['C3_7_3']           = 'Example of a member csv file';
 $lang['C3_7_4']           =
-'Email@Elternteil1;Email@Sch&#252ler1
-Email@Elternteil2;Email@Sch&#252ler2
-Email@Elternteil3;Email@Sch&#252ler3
+'email@parents1; email@pupil1
+email@parents2; email@pupil2
+email@parents3; email@pupil3
 ';
-$lang['C3_7_5_0']         = 'Probleme in der Linie: ';
-$lang['C3_7_5_1']         = 'Deine Datei ergibt folgenden Inhalt: <b> Anzahl der erzeugten Objekte:</b> ';
-$lang['C3_7_5_2']         = '<br /><br /> Durch erneutes aktivieren des "senden" buttons werden die Objekte erzeugt und du wirst als Admin eingetragen';
-$lang['C3_7_6']           = 'Deine hochgeladene csv - Datei';
+$lang['C3_7_5_0']         = 'Problems in line: ';
+$lang['C3_7_5_1']         = 'Your file has the following content: <b> Number of objects created:</b> ';
+$lang['C3_7_5_2']         = '
+<br /><br />
+You can change the uploaded file again in the text field, the changes are also saved as a file in
+your profile. In addition, a log file is created and saved in your profile.';
+$lang['C3_7_6']           = 'Your uploaded csv file';
 
 /***********************************************************************/
 
