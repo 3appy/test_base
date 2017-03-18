@@ -24,7 +24,7 @@ $lang['C3_userfile_disk'] = 'Fil fra din computer';
 
 $lang['C3_form_header']   = 'Importer CSV-fil';
 $lang['C3_0_1']           =
-'<br />En CSV (kommaseparerede v&#230rdier) er en simpel tekstfil, hvor værdierne er simpelthen adskilt af semikoloner. Du kan tage en simpel editor
+'<br />En CSV (kommaseparerede v&#230rdier) er en simpel tekstfil, hvor v&#230rdierne er simpelthen adskilt af semikoloner. Du kan tage en simpel editor
 tage, eller du bruger et regnearksprogram og gemmer filen som en CSV fra. Det er vigtigt, at strukturen af den respektive pr&#248ve fil identiske.
 Hvis de bruges specialtegn, skal filen i UTF-8 format gemmes.';
 
@@ -49,7 +49,7 @@ $lang['C3_1_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_1_5_2']         = 
 '<br /><br /> "Send" knappen ville skabt objekterne, og du vil indtastes som Admin.
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_1_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
@@ -73,7 +73,7 @@ $lang['C3_2_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_2_5_2']         = '
 <br /><br /> 
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_2_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
@@ -100,7 +100,7 @@ $lang['C3_3_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_3_5_2']         = '
 <br /><br />
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_3_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
@@ -124,7 +124,7 @@ $lang['C3_4_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_4_5_2']         = '
 <br /><br />
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_4_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
@@ -151,13 +151,13 @@ $lang['C3_5_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_5_5_2']         = '
 <br /><br />
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_5_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
 
 $lang['C3_6_0']           = 'Importier medlem-gruppe forbindelse';
-$lang['C3_6_1']           = 'Alle medlemmer (for#230ldre, elever) kan forbindes til de respektive grupper.';
+$lang['C3_6_1']           = 'Alle medlemmer (for&#230ldre, elever) kan forbindes til de respektive grupper.';
 $lang['C3_6_2']           =
 '<b>[ topgruppe; gruppe; email ]</b> <br />
 Medlemmer af en gruppe tildeles til klasser eller grupper.
@@ -177,13 +177,13 @@ $lang['C3_6_5_1']         = 'Din fil har f&#248lgende indhold: <b> antal objekte
 $lang['C3_6_5_2']         = '
 <br /><br />
 Du kan &#230ndre filen igen i tekstfeltet. Alle &#230ndringerne ville gemmes i en fil
-i din profil. Desuden ville der opretes en log - fil i din profil.';
+i din profil. Desuden ville der oprettes en log - fil i din profil.';
 $lang['C3_6_6']           = 'Din uploadet csv - fil';
 
 /***********************************************************************/
 
 $lang['C3_7_0']           = 'Importier medlem-medlem forbindelser';
-$lang['C3_7_1']           = 'Alle forbindelser fra for#230ldre til elever kan importeres her.';
+$lang['C3_7_1']           = 'Alle forbindelser fra for&#230ldre til elever kan importeres her.';
 $lang['C3_7_2']           =
 '<b>[ email@foraeldre; email@elever ]</b> <br />
 Die Verbindung zwischen einem Elternprofil und einem Sch&#252lerprofil kann hier vorgenommen werden.

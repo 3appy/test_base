@@ -7,8 +7,8 @@ include_once 'C2_post_control.php';
 
 $frame = new C_basic_frame();
 $frame->set_control( new C2_post_control() );
-$frame->set_frame_switch( 'default' );
-$frame->set_next_frame( 'C7_frame.php' );
+$frame->set_frame_switch( 'from_control' );
+$frame->set_next_frame( '' );
 
 $next_frame = $frame->return_next_frame();
 header("Location:" . $next_frame );

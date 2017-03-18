@@ -88,8 +88,6 @@ class service_control
      $list->load_all();
      $list_count = $list->get_item_count();
      
-     echo "team_article_list: " . $list_count;
-     
      for( $n=0; $n<$list_count; $n++ )
      {
      $team_article =  $list->get_item( $n );
@@ -116,7 +114,6 @@ class service_control
      // remember ti disable the actual binding in the list_class to read the
      $list->load_all();
      $list_count = $list->get_item_count();
-     echo "event_article_list: " . $list_count;
 
      for( $n=0; $n<$list_count; $n++ )
      {
@@ -144,7 +141,6 @@ class service_control
      // remember ti disable the actual binding in the list_class to read the
      $list->load_all();
      $list_count = $list->get_item_count();
-     echo "team_list: " . $list_count;              
      
      for( $n=0; $n<$list_count; $n++ )
      {

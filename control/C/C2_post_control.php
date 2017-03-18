@@ -49,7 +49,24 @@ class C2_post_control
      */
     private $team = null;
 
+    /**
+     * Short description of attribute next_frame
+     *
+     * @access public
+     * @var String
+     */
+    public $next_frame = null;
+
     // --- OPERATIONS ---
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function get_next_frame()
+    {
+     return $this->next_frame;
+    }
     /**
      *
      * @access public
@@ -57,6 +74,7 @@ class C2_post_control
      */
     public function is_entered_completed()
     {
+     $this->next_frame = $_SESSION['C_frame_base'] . "C7_frame.php";
      return TRUE;
     }
     /**
@@ -157,6 +175,12 @@ class C2_post_control
      $team = new team();
      $team->set_id($id);
      $team->load();
+     
+     $up_team_id = $team->get_upteam()->get_id();
+     $this->next_frame = $_SESSION['C_control_base'] . "C0_pre_frame.php";
+     $this->get_param_list()->add_parameter( '&id=' . $up_team_id );
+     
      $team->remove_team();
+     return TRUE;
     }
 }?>
