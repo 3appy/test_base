@@ -17,7 +17,7 @@ if (0 > version_compare(PHP_VERSION, '5')) {
  *
  * @author firstname and lastname of author, <author@example.org>
  */
-require_once('class.basic_control.php');
+require_once('../basic/class.basic_control.php');
 
 /* user defined includes */
 // section 10-5-23-115--513bad66:14c21d161ba:-8000:00000000000018C2-includes begin
@@ -69,6 +69,10 @@ class C28_post_control
      
      if( defined('__ROOT_CONTROL__') == FALSE )
      { define('__ROOT_CONTROL__', $this->get_root_control() ); }
+     require_once(__ROOT_CONTROL__.
+     'basic/class.team_service_connection.php');
+     require_once(__ROOT_CONTROL__.
+     'email/class.extern_team_invitation_mail.php');
      
      $success = FALSE;
      $password = $this->rand_string( 8 );
