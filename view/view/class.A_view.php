@@ -88,11 +88,11 @@ class A_view
      else
      {
      $login_logout = $this->get_link_A( (int)1, $lang['header_nav_1'] );
-     $contact = $this->get_link_A( (int)25, $lang['header_nav_25'] );
+     $help_me = $this->get_link_A( (int)25, $lang['header_nav_25'] );
      $language = $this->get_link_A( (int)24, $lang['header_nav_24'] );
      $register_school = $this->get_link_A( (int)20, $lang['header_nav_20'] );
      $contact = $this->get_link_A( (int)21, $lang['header_nav_21'] );
-     return $login_logout . " | " . $contact . " | " .
+     return $login_logout . " | " . $help_me . " | " .
      $language . " | " . $register_school . " | " . $contact;
      }
     }

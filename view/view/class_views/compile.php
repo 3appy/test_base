@@ -7,6 +7,7 @@ $files =
 "class.message_view.php",
 "class.article_view.php",
 "class.comment_view.php",
+"class.member_info_view.php",
 "class.table_element_list.php",
 "class.calender_day.php",
 "class.calender_time_element.php",

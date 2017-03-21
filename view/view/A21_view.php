@@ -78,6 +78,34 @@ class A21_view
      */
     public function get_contact_form()
     {
-     echo "huhu";
+     if( defined('__ROOT_DATA__') == FALSE )
+     { define('__ROOT_DATA__', $this->get_root_data() ); }
+     require_once(__ROOT_DATA__.'class.member.php');
+     
+     if( defined('__ROOT_VIEW__') == FALSE )
+     { define('__ROOT_VIEW__', $this->get_root_view() ); }
+     require_once(__ROOT_VIEW__.'view/class_views/class.member_info_view.php');
+
+     $language = $this->get_language_array();
+     
+     $bernd = new member();
+     $bernd->set_id( (int)160 );
+     $bernd->load();
+     
+     $bernd_view = new member_info_view();
+     $bernd_view->set_member( $bernd );
+     $bernd_view->set_text( utf8_decode( $language['C3_bernd'] ) );
+         
+     $stephan = new member();
+     $stephan->set_id( (int)116 );
+     $stephan->load();
+
+     $stephan_view = new member_info_view();
+     $stephan_view->set_member( $stephan );
+     $stephan_view->set_text( utf8_decode( $language['C3_stephan'] ) );
+     
+     return
+     $stephan_view->get_view() .
+     $bernd_view->get_view();
     }
 }?>
