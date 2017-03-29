@@ -122,7 +122,7 @@ class B6_post_control
      $message->set_reader_id( $this->reader_id );
      $message->set_read_stamp( 0 );
      $message->set_text( $this->generate_hyperlink( $text ) );
-     $message->set_media_id( $this->add_file() );
+     $message->set_media_id( $this->add_media_file() );
      $message->insert();
      
      $this->insert_news();
@@ -139,29 +139,24 @@ class B6_post_control
      * @access public
      * @author firstname and lastname of author, <author@example.org>
      */
-    public function add_file()
+    public function add_media_file()
     {
      if( defined('__ROOT_CONTROL__') == FALSE )
      { define('__ROOT_CONTROL__', $this->get_root_control() ); }
      require_once(__ROOT_CONTROL__.
      'basic/class.service_add_file.php');
      
-     if( empty( $_FILES['userfile']['name'] ))
-     // nothing to copy
-     { $media_id = (int)0; }
+     $media_id = (int)0;
+     
+     if( $_FILES['upload']['name'][0] == null )
+     { ; } // no files selected
      else
      {
-     // something has to copy
      $service_file = new service_add_file();
-     $service_file->set_file_name( $_FILES['userfile']['name'] );
-     $service_file->set_file_source( $_FILES['userfile']['tmp_name'] );
-     $service_file->set_file_size( $_FILES['userfile']['size'] );
-     $service_file->set_file_error( $_FILES['userfile']['error'] );
-     
      $service_file->set_owner_group( "m" );
+     $service_file->set_owner_id( $this->author_id );
      $service_file->set_uploader_id( $this->author_id );
-     
-     $media_id = $service_file->add_file();
+     $media_id = $service_file->add_media_files( $_FILES['upload'] );
      }
      return $media_id;
     }

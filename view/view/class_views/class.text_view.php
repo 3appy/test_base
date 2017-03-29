@@ -295,6 +295,58 @@ class text_view
      *
      * @access public
      * @author firstname and lastname of author, <author@example.org>
+     * @param  file_info
+     * @param  count
+     */
+    public function get_file_text($file_info, $count)
+    {
+     if( $count == (int)1 )
+     {
+     $text1 =
+     $count . " " .
+     $this->language['media_1_sing'] . " " .
+     $this->get_author_link() . " " .
+     $this->language['media_2'];
+     
+     $text2 =
+     $this->language['media_3_sing'] . " " .
+     $this->get_author_link() . " " .
+     $this->language['media_4_sing'];
+     }
+     elseif( $count > (int)1 )
+     {
+     $text1 =
+     $count . " " .
+     $this->language['media_1_plu'] . " " .
+     $this->get_author_link() . " " .
+     $this->language['media_2'];
+     
+     $text2 =
+     $this->language['media_3_plu'] . " " .
+     $this->get_author_link() . " " .
+     $this->language['media_4_plu'];
+     }
+     else
+     {
+     $text1 = "";
+     $file_info = "";
+     $text2 = "";
+     }
+     
+     return
+     "<br/><br/>" .
+     "<small>" .
+     $text1 .
+     "<br/><br/>" .
+     $file_info .
+     $text2 .
+     "<br/>" .
+     "</small>";
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
      */
     public function get_file_info()
     {
@@ -317,19 +369,22 @@ class text_view
      $media_file = $media_list->get_item( $n );
      
      if( $media_file->get_picture_id() > (int)0 )
-     { 
-     $file_info .= 
-     $this->get_image_icon( $media_file->get_picture_id() ); 
+     {
+     $file_info .=
+     $this->get_image_icon( $media_file->get_picture_id() ) .
+     "<br />";
      }
      elseif( $media_file->get_document_id() > (int)0 )
-     { 
-     $file_info .= 
-     $this->get_document_icon( $media_file->get_document_id() ); 
+     {
+     $file_info .=
+     $this->get_document_icon( $media_file->get_document_id() ) .
+     "<br />";
      }
      elseif( $media_file->get_video_id() > (int)0 )
-     { 
-     $file_info .= 
-     $this->get_video_icon( $media_file->get_video_id() ); 
+     {
+     $file_info .=
+     $this->get_video_icon( $media_file->get_video_id() ) .
+     "<br />";
      }
      else
      { ; }
@@ -338,48 +393,6 @@ class text_view
      }
      return $file_info;
     }
-    
-    public function get_file_text( $file_info, $count )
-    {
-     if( $count == (int)1 )
-     {
-     $text1 =
-     $count . " " .
-     $this->language['media_1_sing'] . " " .
-     $this->get_author_link() . " " .
-     $this->language['media_2'];
-     
-     $text2 = 
-     $this->language['media_3_sing'] . " " .
-     $this->get_author_link() . " " .
-     $this->language['media_4_sing'];
-     }
-     else
-     {
-     $text1 =
-     $count . " " .
-     $this->language['media_1_plu'] . " " .
-     $this->get_author_link() . " " .
-     $this->language['media_2'];
-
-     $text2 =
-     $this->language['media_3_plu'] . " " .
-     $this->get_author_link() . " " .
-     $this->language['media_4_plu'];
-     }    
-
-     return
-     "<br/><br/>" .
-     "<small>" .
-     $text1 .
-     "<br/>" .
-     $file_info .
-     "<br/>" .
-     $text2 .
-     "<br/>" .
-     "</small>";
-    }
-    
     /**
      *
      * @access public
@@ -406,9 +419,11 @@ class text_view
      get_basic_post_frame() . ".php" .
      "?function=" . (int)16 .
      "&image_id=" . $image->get_id() . "\">" .
-     "<img src=\"". $image->get_format_thumb() .
+     "<img style=\"vertical-align:middle\" 
+     src=\"". $image->get_format_thumb() .
      "\" alt=\"ads\" class=\"flexible\"/>" .
-     "</a>";
+     "</a>" .
+     "<span style=\"\">" . $image->get_header() . "</span>";
     }
     /**
      *
@@ -428,9 +443,11 @@ class text_view
      
      return
      "<a target=\"_blank\" href=\"" . $document->get_document() . "\">" .
-     "<img src=\"". $document->get_format_thumb() .
+     "<img style=\"vertical-align:middle\" 
+     src=\"". $document->get_format_thumb() .
      "\" alt=\"ads\" class=\"flexible\"/>" .
-     "</a>";
+     "</a>" .
+     "<span style=\"\">" . $document->get_header() . "</span>";
     }
     /**
      *
@@ -458,9 +475,11 @@ class text_view
      get_basic_post_frame() . ".php" .
      "?function=" . (int)17 .
      "&video_id=" . $video->get_id() . "\">" .
-     "<img src=\"". $video->get_format_thumb() .
+     "<img style=\"vertical-align:middle\" 
+     src=\"". $video->get_format_thumb() .
      "\" alt=\"ads\" class=\"flexible\"/>" .
-     "</a>";
+     "</a>" .
+     "<span style=\"\">" . $video->get_header() . "</span>";
     }
     /**
      *

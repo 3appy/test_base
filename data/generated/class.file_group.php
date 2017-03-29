@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 27.01.2017, 15:23:56 with ArgoUML PHP module 
+ * Automatically generated on 28.03.2017, 21:51:07 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -180,7 +180,7 @@ class file_group
     public function is_error_free()
     {
      $error_free = FALSE;
-     if( $_FILES['userfile']['error']==0 )
+     if( $this->file_error == (int)0 )
      { $error_free = TRUE; }
      else
      { $this->db_warning->upload_file_error(); }

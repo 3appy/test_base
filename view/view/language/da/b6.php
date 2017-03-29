@@ -37,8 +37,8 @@ $lang['media_3_plu']          = 'filerne er ejendom af';
 $lang['media_4_sing']         = 'og m&#229 ikke videresendes uden tilladelse';
 $lang['media_4_plu']          = 'og m&#229 ikke videresendes uden tilladelse';
 
-$lang['C3_addfile']              = 'Tilf&#248j en fil til din besked';
-$lang['C3_userfile_disk']        = 'Fil fra computeren';
+$lang['C3_addfile']              = 'Tilf&#248j filer til din besked';
+$lang['C3_userfile_disk']        = 'Filer fra computeren';
 $lang['C3_userfile_profile']     = 'Tilf&#248j en fil fra din profil';
 
 $lang['C3_link_selection']       = 'Definere filen';

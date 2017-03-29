@@ -40,8 +40,8 @@ $lang['media_3_plu']          = 'Die Dateien sind Eigentum von';
 $lang['media_4_sing']         = 'und darf ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
 $lang['media_4_plu']          = 'und d&#252rfen ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
 
-$lang['C3_addfile']              = 'F&#252ge eine Datei zu deiner Nachricht';
-$lang['C3_userfile_disk']        = 'Datei vom Computer';
+$lang['C3_addfile']              = 'F&#252ge eine oder mehrere Dateien zu deiner Nachricht';
+$lang['C3_userfile_disk']        = 'Dateien vom Computer';
 $lang['C3_userfile_profile']     = 'F&#252ge eine Datei aus deinem Profil';
 
 $lang['C3_link_selection']       = 'Definier die Datei';

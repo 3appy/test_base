@@ -30,8 +30,8 @@ $lang['media_3_plu']          = 'The files are owned by';
 $lang['media_4_sing']         = 'and may not be passed without permission';
 $lang['media_4_plu']          = 'and may not be passed without permission';
 
-$lang['C3_addfile']              = 'Add a file to your message';
-$lang['C3_userfile_disk']        = 'File from your computer';
+$lang['C3_addfile']              = 'Add several files to your message';
+$lang['C3_userfile_disk']        = 'Files from your computer';
 $lang['C3_userfile_profile']     = 'Add a file from your profile';
 
 $lang['C3_link_selection']       = 'Define the file';
