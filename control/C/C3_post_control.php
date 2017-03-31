@@ -42,23 +42,30 @@ class C3_post_control
     // --- ATTRIBUTES ---
 
     /**
-     * Short description of attribute next_frame
+     * Short description of attribute author_id
      *
-     * @access public
-     * @var String
+     * @access private
+     * @var Integer
      */
-    public $next_frame = null;
+    private $author_id = null;
+
+    /**
+     * Short description of attribute owner_id
+     *
+     * @access private
+     * @var Integer
+     */
+    private $owner_id = null;
+
+    /**
+     * Short description of attribute team
+     *
+     * @access private
+     * @var Integer
+     */
+    private $team = null;
 
     // --- OPERATIONS ---
-    /**
-     *
-     * @access public
-     * @author firstname and lastname of author, <author@example.org>
-     */
-    public function get_next_frame()
-    {
-     return $this->next_frame;
-    }
     /**
      *
      * @access public
@@ -69,7 +76,27 @@ class C3_post_control
      $completed = TRUE;
      if ( empty($_POST["header"]) OR empty($_POST["article"]))
      { $completed = FALSE; }
+     else
+     { $this->setup_variables(); }
      return $completed;
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function setup_variables()
+    {
+     if( defined('__ROOT_DATA__') == FALSE )
+     { define('__ROOT_DATA__', $this->get_root_data() ); }
+     require_once(__ROOT_DATA__.'class.team.php');
+     
+     $this->author_id = $_SESSION['watch_id'];
+     $this->owner_id = $_SESSION['watched_id'];
+     
+     $this->team = new team();
+     $this->team->set_id( $this->owner_id );
+     $this->team->load();
     }
     /**
      *
@@ -81,61 +108,28 @@ class C3_post_control
      if( defined('__ROOT_DATA__') == FALSE )
      { define('__ROOT_DATA__', $this->get_root_data() ); }
      require_once(__ROOT_DATA__.'class.team_article.php');
-     require_once(__ROOT_DATA__.'class.team.php');
-     
-     if( defined('__ROOT_CONTROL__') == FALSE )
-     { define('__ROOT_CONTROL__', $this->get_root_control() ); }
-     require_once(__ROOT_CONTROL__.
-     'email/class.article_list_mail.php');
      
      $success = FALSE;
-     $author_id = $_SESSION['watch_id'];
-     $owner_id = $_SESSION['watched_id'];
+     
+     $media_id = $this->add_media_file();
+     $text = htmlspecialchars( $_POST["article"] );
+     $text = $this->generate_hyperlink( $text );
      
      $new_article = new team_article();
      $new_article->set_deleted( (int)0 );
-     $new_article->set_owner_id( (int)$owner_id );
-     $new_article->set_author_id( (int)$author_id );
-     
-     if ( isset($_POST["header"]) )
-     { $new_article->set_header($_POST["header"]); }
-     else
-     { $new_article->set_header(""); }
-     
-     if ( isset($_POST["article"]) )
-     {
-     $article = htmlspecialchars( $_POST["article"] );
-     $article = $this->generate_hyperlink( $article );
-     $new_article->set_text( $article );
-     }
-     else
-     { $new_article->set_text(""); }
-     
-//     $new_article->set_image_id( (int)0 );
-//     $new_article->set_ref_link("");
+     $new_article->set_owner_id( $this->owner_id );
+     $new_article->set_author_id( $this->author_id );
+     $new_article->set_header( $_POST["header"] );
+     $new_article->set_text( $text );
+     $new_article->set_media_id( $media_id );
      $article_id = $new_article->insert();
      
      if ( $article_id > 0 )
      {
      $success = TRUE;
-     $this->set_next_frame( $article_id );
      
-     $team = new team();
-     $team->set_id( $owner_id );
-     $team->load();
-     
-     $receiver_list = $team->get_all_member_list();
-     $author_id = $new_article->get_author_id();
-     
-     $mail_list = new article_list_mail();
-     $mail_list->set_author_id( $author_id );
-     $mail_list->set_receiver_list( $receiver_list );
-     $mail_list->set_article( $new_article );
-     $mail_list->set_entity( $team );
-     $mail_list->sent_mail();
-     
-     $this->insert_news( $receiver_list, $author_id );
-     
+     $this->insert_news_list();
+     $this->sent_mail_list( $new_article );
      $this->update_article_modified_stamp( $article_id );
      }
      return $success;
@@ -144,44 +138,71 @@ class C3_post_control
      *
      * @access public
      * @author firstname and lastname of author, <author@example.org>
-     * @param  receiver_list
-     * @param  uploader_id
      */
-    public function insert_news($receiver_list, $uploader_id)
+    public function add_media_file()
+    {
+     if( defined('__ROOT_CONTROL__') == FALSE )
+     { define('__ROOT_CONTROL__', $this->get_root_control() ); }
+     require_once(__ROOT_CONTROL__.
+     'basic/class.service_add_file.php');
+     
+     $media_id = (int)0;
+     
+     if( $_FILES['upload']['name'][0] == null )
+     { ; } // no files selected
+     else
+     {
+     $service_file = new service_add_file();
+     $service_file->set_owner_group( "t" );
+     $service_file->set_owner_id( $this->owner_id );
+     $service_file->set_uploader_id( $this->author_id );
+     $media_id = $service_file->add_media_files( $_FILES['upload'] );
+     }
+     return $media_id;
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function insert_news_list()
     {
      if( defined('__ROOT_DATA__') == FALSE )
      { define('__ROOT_DATA__', $this->get_root_data() ); }
      require_once(__ROOT_DATA__.'class.news_list.php');
      
+     $receiver_list = $this->team->get_all_member_list();
+     
      $news_list = new news_list();
      $news_list->set_receiver_model( $receiver_list );
      $news_list->set_entity_group("t");
-     $news_list->set_entity_id( $_SESSION['watched_id'] );
+     $news_list->set_entity_id( $this->owner_id );
      $news_list->set_function( (int)504 );
      $news_list->set_article_id( (int)0 );
-     $news_list->set_uploader_id( $uploader_id );
+     $news_list->set_uploader_id( $this->author_id );
      $news_list->insert();
     }
     /**
      *
      * @access public
      * @author firstname and lastname of author, <author@example.org>
-     * @param  article_id
+     * @param  new_article
      */
-    public function set_next_frame($article_id)
+    public function sent_mail_list($new_article)
     {
-     if (isset($_POST['filetype']))
-     {
-     if ($_POST['filetype'] == '1')
-     { 
-     $this->next_frame = $_SESSION['C_frame_base'] . "C35_frame.php"; 
-     $_SESSION['article_return_id'] = $article_id;
-     }
-     else
-     { $this->next_frame = $_SESSION['C_frame_base'] . "C7_frame.php"; }
-     }
-     else
-     { $this->next_frame = $_SESSION['C_frame_base'] . "C7_frame.php"; }
+     if( defined('__ROOT_CONTROL__') == FALSE )
+     { define('__ROOT_CONTROL__', $this->get_root_control() ); }
+     require_once(__ROOT_CONTROL__.
+     'email/class.article_list_mail.php');
+     
+     $receiver_list = $this->team->get_all_member_list();
+     
+     $mail_list = new article_list_mail();
+     $mail_list->set_author_id( $this->author_id );
+     $mail_list->set_receiver_list( $receiver_list );
+     $mail_list->set_article( $new_article );
+     $mail_list->set_entity( $this->team );
+     $mail_list->sent_mail();
     }
     /**
      *

@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 21.04.2016, 10:30:52 with ArgoUML PHP module 
+ * Automatically generated on 31.03.2017, 15:40:39 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -80,7 +80,7 @@ class comment_view
      return
      "<div class=\"ym-g80 ym-gr\">" .
      "<p class=\"box info\">" .
-//     $this->text_model->get_text() .
+     $this->get_comment_image() .
      $this->get_text() .
      "<br/>" .
      "<br/>" .
@@ -91,6 +91,41 @@ class comment_view
      "</small>" .
      "</p>" .
      "</div>";
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function get_comment_image()
+    {
+     $comment_image = "";
+     $image = $this->get_comment()->get_image();
+     
+     if ( $image->get_id() > (int)0 )
+     {
+     $control_base = $this->get_base_frame()->
+     get_entity_name() . '_control_base';
+     $comment_image = "".
+     "<a href=\"" . $_SESSION[$control_base] .
+     $this->get_base_frame()->
+     get_basic_post_frame() . ".php" .
+     "?function=" . (int)16 .
+     "&image_id=" . $image->get_id() . "\">" .
+     "<img src=\"". $image->get_article_thumb() .
+     "\" alt=\"\"" . "class=\"float-right bordered\"/> " .
+     "</a> ";
+     }
+     return $comment_image;
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function get_comment()
+    {
+     return $this->text_model;
     }
     /**
      *

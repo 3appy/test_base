@@ -87,6 +87,7 @@ class C3_view
      $article_form = new article_form($action);
      $article_form->set_language($language_array);
      $article_form->set_header( $language_array['C3_form_header'] );
+     $article_form->set_enctype("multipart/form-data");
      
      return $article_form->get_form();
     }

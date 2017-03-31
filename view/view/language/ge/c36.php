@@ -15,6 +15,15 @@ require('general/send_receive_button.php');
 
 $lang['C3_form_header']        = 'Schreibe ein Kommentar f&#252r den Artikel: ';
 $lang['C3_text']               = 'Dein Kommentar';
+
+$lang['media_1_sing']         = 'Datei wurde von';
+$lang['media_1_plu']          = 'Dateien wurden von';
+$lang['media_2']              = 'zur Verf&#252gung gestellt';
+$lang['media_3_sing']         = 'Die Datei ist Eigentum von';
+$lang['media_3_plu']          = 'Die Dateien sind Eigentum von';
+$lang['media_4_sing']         = 'und darf ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
+$lang['media_4_plu']          = 'und d&#252rfen ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
+
 $lang['C3_written_by']         = 'geschrieben von ';
 $lang['C3_at']                 = 'am ';
 $lang['C3_show_all_comments']  = 'Zeige alle Kommentare:';

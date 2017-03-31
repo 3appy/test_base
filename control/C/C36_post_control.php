@@ -42,20 +42,36 @@ class C36_post_control
     // --- ATTRIBUTES ---
 
     /**
-     * Short description of attribute author_id
-     *
-     * @access public
-     * @var Integer
-     */
-    public $author_id = null;
-
-    /**
      * Short description of attribute article_id
      *
-     * @access public
+     * @access private
      * @var Integer
      */
-    public $article_id = null;
+    private $article_id = null;
+
+    /**
+     * Short description of attribute author_id
+     *
+     * @access private
+     * @var Integer
+     */
+    private $author_id = null;
+
+    /**
+     * Short description of attribute owner_id
+     *
+     * @access private
+     * @var Integer
+     */
+    private $owner_id = null;
+
+    /**
+     * Short description of attribute team
+     *
+     * @access private
+     * @var Integer
+     */
+    private $team = null;
 
     // --- OPERATIONS ---
     /**
@@ -69,11 +85,27 @@ class C36_post_control
      if ( empty($_POST["text"]) OR empty($_GET["article_id"]))
      { $completed = FALSE; }
      else
-     { 
-     $this->author_id = $_SESSION['watch_id']; 
-     $this->article_id = htmlspecialchars( $_GET["article_id"] );
-     }
+     { $this->setup_variables(); }
      return $completed;
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function setup_variables()
+    {
+     if( defined('__ROOT_DATA__') == FALSE )
+     { define('__ROOT_DATA__', $this->get_root_data() ); }
+     require_once(__ROOT_DATA__.'class.team.php');
+     
+     $this->article_id = htmlspecialchars( $_GET["article_id"] );
+     $this->author_id = $_SESSION['watch_id']; 
+     $this->owner_id = $_SESSION['watched_id'];
+     
+     $this->team = new team();
+     $this->team->set_id( $this->owner_id );
+     $this->team->load();
     }
     /**
      *
@@ -87,21 +119,50 @@ class C36_post_control
      require_once(__ROOT_DATA__.'class.team_article_comment.php');
      
      $_SESSION['C37_article_id'] = $this->article_id;
-     $text = htmlspecialchars( $_POST["text"]);
+     $media_id = $this->add_media_file();
+     $text = htmlspecialchars( $_POST["text"] );
+     $text = $this->generate_hyperlink( $text );
      
      $comment = new team_article_comment();
      $comment->set_deleted( (int)0 );
      $comment->set_author_id( $this->author_id );
      $comment->set_article_id( $this->article_id );
-     $comment->set_text( $this->generate_hyperlink( $text ) );
+     $comment->set_text( $text );
+     $comment->set_media_id( $media_id );
      $comment_id = $comment->insert();
      
      if ( $comment_id > 0 )
      {
-     $this->update_article_modified_stamp( $comment_id );
      $this->insert_news_list();
      $this->sent_mail_list();
+     $this->update_article_modified_stamp( $comment_id );
      }
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function add_media_file()
+    {
+     if( defined('__ROOT_CONTROL__') == FALSE )
+     { define('__ROOT_CONTROL__', $this->get_root_control() ); }
+     require_once(__ROOT_CONTROL__.
+     'basic/class.service_add_file.php');
+     
+     $media_id = (int)0;
+     
+     if( $_FILES['upload']['name'][0] == null )
+     { ; } // no files selected
+     else
+     {
+     $service_file = new service_add_file();
+     $service_file->set_owner_group( "t" );
+     $service_file->set_owner_id( $this->owner_id );
+     $service_file->set_uploader_id( $this->author_id );
+     $media_id = $service_file->add_media_files( $_FILES['upload'] );
+     }
+     return $media_id;
     }
     /**
      *
@@ -112,24 +173,14 @@ class C36_post_control
     {
      if( defined('__ROOT_DATA__') == FALSE )
      { define('__ROOT_DATA__', $this->get_root_data() ); }
-     require_once(__ROOT_DATA__.'class.team_article.php');
-     require_once(__ROOT_DATA__.'class.team.php');
      require_once(__ROOT_DATA__.'class.news_list.php');
      
-     $article = new team_article();
-     $article->set_id( $this->article_id );
-     $article->load();
-     
-     $team = new team();
-     $team->set_id( $article->get_owner_id() );
-     $team->load();
-     
-     $receiver_list = $team->get_all_member_list();
+     $receiver_list = $this->team->get_all_member_list();
      
      $news_list = new news_list();
      $news_list->set_receiver_model( $receiver_list );
      $news_list->set_entity_group("t");
-     $news_list->set_entity_id( $team->get_id() );
+     $news_list->set_entity_id( $this->team->get_id() );
      $news_list->set_function( (int)505 );
      $news_list->set_article_id( $this->article_id );
      $news_list->set_uploader_id( $this->author_id );
@@ -142,40 +193,35 @@ class C36_post_control
      */
     public function sent_mail_list()
     {
-     if( defined('__ROOT_DATA__') == FALSE )
-     { define('__ROOT_DATA__', $this->get_root_data() ); }
-     require_once(__ROOT_DATA__.'class.team_article.php');
-     require_once(__ROOT_DATA__.'class.team.php');
-     
      if( defined('__ROOT_CONTROL__') == FALSE )
      { define('__ROOT_CONTROL__', $this->get_root_control() ); }
      require_once(__ROOT_CONTROL__.
      'email/class.comment_list_mail.php');
      
+     if( defined('__ROOT_DATA__') == FALSE )
+     { define('__ROOT_DATA__', $this->get_root_data() ); }
+     require_once(__ROOT_DATA__.'class.team_article.php');
+     
      $article = new team_article();
      $article->set_id( $this->article_id );
      $article->load();
      
-     $team = new team();
-     $team->set_id( $article->get_owner_id() );
-     $team->load();
-     
-     $receiver_list = $team->get_all_member_list();
+     $receiver_list = $this->team->get_all_member_list();
      
      $mail_list = new comment_list_mail();
      $mail_list->set_author_id( $this->author_id );
      $mail_list->set_receiver_list( $receiver_list );
      $mail_list->set_article( $article );
-     $mail_list->set_entity( $team );
+     $mail_list->set_entity( $this->team );
      $mail_list->sent_mail();
     }
     /**
      *
      * @access public
      * @author firstname and lastname of author, <author@example.org>
-     * @param  stamp
+     * @param  comment_id
      */
-    public function update_article_modified_stamp( $comment_id )
+    public function update_article_modified_stamp($comment_id)
     {
      if( defined('__ROOT_DATA__') == FALSE )
      { define('__ROOT_DATA__', $this->get_root_data() ); }

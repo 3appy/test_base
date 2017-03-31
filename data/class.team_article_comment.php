@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 27.01.2015, 16:13:33 with ArgoUML PHP module 
+ * Automatically generated on 31.03.2017, 14:05:52 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -57,5 +57,39 @@ class team_article_comment
     public function get_text()
     {
      return str_replace("\n","<br />", parent::get_text() );
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function get_comment_image()
+    {
+     return $this->get_image()->get_article_thumb();
+    }
+    /**
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     */
+    public function get_image()
+    {
+     if( defined('__DB_ROOT__') == FALSE )
+     { define('__DB_ROOT__', dirname(__FILE__) ); }
+     require_once(__DB_ROOT__.'/class.media_file_list.php');
+     
+     if( $this->get_media_id() > (int)0 )
+     {
+     $media_list = new media_file_list();
+     $media_list->set_media_id( $this->get_media_id() );
+     $image_list = $media_list->load_picture();
+     
+     if( $image_list->get_item_count() > (int)0 )
+     { return $image_list->get_item( (int)0 ); }
+     else
+     { return new image(); }
+     }
+     else
+     { return new image(); }
     }
 }?>

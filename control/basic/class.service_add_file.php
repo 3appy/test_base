@@ -290,7 +290,7 @@ class service_add_file
      {
      $new_media_file = new media_file();
      $new_media_file->set_picture_id( (int)0 );
-     $new_media_file->set_document_id( document_id );
+     $new_media_file->set_document_id( $document_id );
      $new_media_file->set_video_id( (int)0 );
      $media_file_id = $new_media_file->insert();
      }

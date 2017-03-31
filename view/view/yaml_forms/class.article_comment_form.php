@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 01.01.2017, 21:36:06 with ArgoUML PHP module 
+ * Automatically generated on 31.03.2017, 13:19:19 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -60,30 +60,28 @@ class article_comment_form
      { define('__VIEW_CONTROL__', $this->get_root_view_control() ); }
      
      require_once(__VIEW_CONTROL__.'class.fbox_text_area_element.php');
-     require_once(__VIEW_CONTROL__.'class.fbox_text_hidden_element.php');
-     require_once(__VIEW_CONTROL__.'class.fbox_select_filetype_element.php');
+     require_once(__VIEW_CONTROL__.'class.fbox_multiple_upload_element.php');
      
      $text_element = new fbox_text_area_element();
      $text_element->set_label($this->language['C3_text']);
      $text_element->set_name("text");
      
-     // ----------------- add file from disk -----------------
-     $userfile = new fbox_text_hidden_element();
-     $userfile->set_label($this->language['C3_userfile_disk']);
-     $userfile->set_name("userfile");
+     // ----------- add several files from harddisk -------------
+     $m_userfile = new fbox_multiple_upload_element();
+     $m_userfile->set_label($this->language['C3_userfile_disk']);
      
      // -------------- add file from your profile -------------
-     $filetype = new fbox_select_filetype_element();
-     $filetype->set_label($this->language['C3_userfile_profile']);
-     $filetype->set_language( $this->language );
-     $filetype->set_name("filetype");
-     $filetype->define_model();
+     //$filetype = new fbox_select_filetype_element();
+     //$filetype->set_label($this->language['C3_userfile_profile']);
+     //$filetype->set_language( $this->language );
+     //$filetype->set_name("filetype");
+     //$filetype->define_model();
      
      return
-     $text_element->get_element();
-     //"<h6 class=\"ym-fbox-heading\">" . 
-     //$this->language['C3_addfile'] . "</h6>" .
-     //$userfile->get_element() .
+     $text_element->get_element() .
+     "<h6 class=\"ym-fbox-heading\">" . 
+     $this->language['C3_addfile'] . "</h6>" .
+     $m_userfile->get_element();
      //$filetype->get_element();
     }
 }?>

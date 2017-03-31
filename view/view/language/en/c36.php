@@ -16,6 +16,14 @@ require('general/send_receive_button.php');
 $lang['C3_form_header']        = 'write a comment for the article: ';
 $lang['C3_text']               = 'Your comment';
 
+$lang['media_1_sing']         = 'file was provided by';
+$lang['media_1_plu']          = 'file were provided by';
+$lang['media_2']              = '';
+$lang['media_3_sing']         = 'The file is the property of';
+$lang['media_3_plu']          = 'The files are owned by';
+$lang['media_4_sing']         = 'and may not be passed without permission';
+$lang['media_4_plu']          = 'and may not be passed without permission';
+
 $lang['C3_written_by']         = 'written by ';
 $lang['C3_at']                 = 'at ';
 $lang['C3_show_all_comments']  = 'show all comments:';

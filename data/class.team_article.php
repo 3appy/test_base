@@ -107,12 +107,12 @@ class team_article
      {
      $media_list = new media_file_list();
      $media_list->set_media_id( $this->get_media_id() );
-     $image_list = $media_list->load_picture(); 
+     $image_list = $media_list->load_picture();
      
      if( $image_list->get_item_count() > (int)0 )
      { return $image_list->get_item( (int)0 ); }
      else
-     { return new image(); }           
+     { return new image(); }
      }
      else
      { return new image(); }
