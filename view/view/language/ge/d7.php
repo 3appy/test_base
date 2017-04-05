@@ -27,4 +27,12 @@ $lang['C3_delete_article']     = 'Siesen Artikel l&#246schen';
 $lang['C3_delete_article']     = 'Diesen Artikel l&#246schen';
 $lang['C3_ask_delete_comment'] = 'Willst du wirklich diesen Kommentar l&#246schen?';
 $lang['C3_delete_comment']     = 'Diesen Kommentar l&#246schen';
+
+$lang['media_1_sing']         = 'Datei wurde von';
+$lang['media_1_plu']          = 'Dateien wurden von';
+$lang['media_2']              = 'zur Verf&#252gung gestellt';
+$lang['media_3_sing']         = 'Die Datei ist Eigentum von';
+$lang['media_3_plu']          = 'Die Dateien sind Eigentum von';
+$lang['media_4_sing']         = 'und darf ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
+$lang['media_4_plu']          = 'und d&#252rfen ohne ausdr&#252ckliche Genehmigung nicht weitergeleitet werden';
 ?>

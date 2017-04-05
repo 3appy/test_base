@@ -26,4 +26,12 @@ $lang['C3_ask_delete_article'] = 'Do you really want to delete this article? \n 
 $lang['C3_delete_article']     = 'delete this article';
 $lang['C3_ask_delete_comment'] = 'Do you really want to delete this comment?';
 $lang['C3_delete_comment']     = 'delete this comment';
+
+$lang['media_1_sing']         = 'file was provided by';
+$lang['media_1_plu']          = 'file were provided by';
+$lang['media_2']              = '';
+$lang['media_3_sing']         = 'The file is the property of';
+$lang['media_3_plu']          = 'The files are owned by';
+$lang['media_4_sing']         = 'and may not be passed without permission';
+$lang['media_4_plu']          = 'and may not be passed without permission';
 ?>

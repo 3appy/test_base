@@ -27,4 +27,12 @@ $lang['C3_ask_delete_article'] = 'Ville du slette denne artikel? \n Alle komment
 $lang['C3_delete_article']     = 'Slette denne artikel';
 $lang['C3_ask_delete_comment'] = 'Ville du slette denne kommentar?';
 $lang['C3_delete_comment']     = 'Slette denne kommentar';
+
+$lang['media_1_sing']         = 'fil blev sent af';
+$lang['media_1_plu']          = 'filerne blev sent af';
+$lang['media_2']              = '';
+$lang['media_3_sing']         = 'filen er ejendom af';
+$lang['media_3_plu']          = 'filerne er ejendom af';
+$lang['media_4_sing']         = 'og m&#229 ikke videresendes uden tilladelse';
+$lang['media_4_plu']          = 'og m&#229 ikke videresendes uden tilladelse';
 ?>
