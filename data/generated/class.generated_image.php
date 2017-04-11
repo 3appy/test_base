@@ -105,6 +105,14 @@ class generated_image
      */
     private $clicked = null;
 
+    /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public $visible = null;
+
      // --- OPERATIONS ---
 
     /**
@@ -350,6 +358,28 @@ class generated_image
     }
 
     /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public function set_visible($visible)
+    {
+      $this->visible = $visible;
+    }
+
+    /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public function get_visible()
+    {
+      return $this->visible;
+    }
+
+    /**
      *
      * This is the insert function of the class image
      * @author Bernd Schröder
@@ -369,6 +399,7 @@ class generated_image
       $size = $this->get_size();
       $uploader_id = $this->get_uploader_id();
       $clicked = $this->get_clicked();
+      $visible = $this->get_visible();
       if( $stmt = $mysqli->prepare(
       "INSERT INTO image
       (
@@ -381,13 +412,14 @@ class generated_image
       text,
       size,
       uploader_id,
-      clicked
+      clicked,
+      visible
       )
-      VALUES (?,?,?,?,?,?,?,?,?,?)"))
+      VALUES (?,?,?,?,?,?,?,?,?,?,?)"))
       {
       $stmt->bind_param
       (
-      "isissssiii",
+      "isissssiiii",
       $id,
       $owner_group,
       $owner_id,
@@ -397,7 +429,8 @@ class generated_image
       $text,
       $size,
       $uploader_id,
-      $clicked
+      $clicked,
+      $visible
       );
       $stmt->execute();
       $stmt->close();
@@ -434,7 +467,8 @@ class generated_image
       upload_stamp,
       size,
       uploader_id,
-      clicked
+      clicked,
+      visible
       FROM image WHERE id=?"))
       {
       $stmt->bind_param('i', $id );
@@ -451,7 +485,8 @@ class generated_image
       $upload_stamp,
       $size,
       $uploader_id,
-      $clicked
+      $clicked,
+      $visible
       );
       if( $stmt->fetch() == TRUE )
       {
@@ -466,6 +501,7 @@ class generated_image
       $this->set_size( $size );
       $this->set_uploader_id( $uploader_id );
       $this->set_clicked( $clicked );
+      $this->set_visible( $visible );
       $stmt->close();
       }
       else
@@ -501,6 +537,7 @@ class generated_image
       $size = $this->get_size();
       $uploader_id = $this->get_uploader_id();
       $clicked = $this->get_clicked();
+      $visible = $this->get_visible();
       $id = $this->get_id();
       if( $stmt = $mysqli->prepare(
       "UPDATE image SET
@@ -513,12 +550,13 @@ class generated_image
       text=?,
       size=?,
       uploader_id=?,
-      clicked=?
+      clicked=?,
+      visible=?
       WHERE id=?"))
       {
       $stmt->bind_param
       (
-      "isissssiiii",
+      "isissssiiiii",
       $id,
       $owner_group,
       $owner_id,
@@ -529,6 +567,7 @@ class generated_image
       $size,
       $uploader_id,
       $clicked,
+      $visible,
       $id
       );
       $stmt->execute();

@@ -46,7 +46,8 @@ class generated_document_list
       text,
       upload_stamp,
       size,
-      uploader_id
+      uploader_id,
+      visible
       FROM document " .
       $where_statement;
       return $this->basic_load( $prepare_statement );
@@ -108,7 +109,8 @@ class generated_document_list
       $text,
       $upload_stamp,
       $size,
-      $uploader_id
+      $uploader_id,
+      $visible
       );
       $this->stmt->store_result();
       $this->stmt->data_seek( (int)( $start_row ) );
@@ -126,6 +128,7 @@ class generated_document_list
       $new_object->set_upload_stamp( $upload_stamp );
       $new_object->set_size( $size );
       $new_object->set_uploader_id( $uploader_id );
+      $new_object->set_visible( $visible );
       $this->add_item( $new_object );
       $object_number++;
       }
@@ -154,7 +157,8 @@ class generated_document_list
       document.text,
       document.upload_stamp,
       document.size,
-      document.uploader_id
+      document.uploader_id,
+      document.visible
       ";
     }
 

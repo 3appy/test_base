@@ -97,6 +97,14 @@ class generated_document
      */
     private $uploader_id = null;
 
+    /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public $visible = null;
+
      // --- OPERATIONS ---
 
     /**
@@ -320,6 +328,28 @@ class generated_document
     }
 
     /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public function set_visible($visible)
+    {
+      $this->visible = $visible;
+    }
+
+    /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public function get_visible()
+    {
+      return $this->visible;
+    }
+
+    /**
      *
      * This is the insert function of the class document
      * @author Bernd Schröder
@@ -338,6 +368,7 @@ class generated_document
       $text = $this->get_text();
       $size = $this->get_size();
       $uploader_id = $this->get_uploader_id();
+      $visible = $this->get_visible();
       if( $stmt = $mysqli->prepare(
       "INSERT INTO document
       (
@@ -349,13 +380,14 @@ class generated_document
       header,
       text,
       size,
-      uploader_id
+      uploader_id,
+      visible
       )
-      VALUES (?,?,?,?,?,?,?,?,?)"))
+      VALUES (?,?,?,?,?,?,?,?,?,?)"))
       {
       $stmt->bind_param
       (
-      "isissssii",
+      "isissssiii",
       $id,
       $owner_group,
       $owner_id,
@@ -364,7 +396,8 @@ class generated_document
       $header,
       $text,
       $size,
-      $uploader_id
+      $uploader_id,
+      $visible
       );
       $stmt->execute();
       $stmt->close();
@@ -400,7 +433,8 @@ class generated_document
       text,
       upload_stamp,
       size,
-      uploader_id
+      uploader_id,
+      visible
       FROM document WHERE id=?"))
       {
       $stmt->bind_param('i', $id );
@@ -416,7 +450,8 @@ class generated_document
       $text,
       $upload_stamp,
       $size,
-      $uploader_id
+      $uploader_id,
+      $visible
       );
       if( $stmt->fetch() == TRUE )
       {
@@ -430,6 +465,7 @@ class generated_document
       $this->set_upload_stamp( $upload_stamp );
       $this->set_size( $size );
       $this->set_uploader_id( $uploader_id );
+      $this->set_visible( $visible );
       $stmt->close();
       }
       else
@@ -464,6 +500,7 @@ class generated_document
       $text = $this->get_text();
       $size = $this->get_size();
       $uploader_id = $this->get_uploader_id();
+      $visible = $this->get_visible();
       $id = $this->get_id();
       if( $stmt = $mysqli->prepare(
       "UPDATE document SET
@@ -475,12 +512,13 @@ class generated_document
       header=?,
       text=?,
       size=?,
-      uploader_id=?
+      uploader_id=?,
+      visible=?
       WHERE id=?"))
       {
       $stmt->bind_param
       (
-      "isissssiii",
+      "isissssiiii",
       $id,
       $owner_group,
       $owner_id,
@@ -490,6 +528,7 @@ class generated_document
       $text,
       $size,
       $uploader_id,
+      $visible,
       $id
       );
       $stmt->execute();

@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 23.01.2015, 11:17:09 with ArgoUML PHP module 
+ * Automatically generated on 11.04.2017, 16:53:09 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -88,7 +88,7 @@ class image_list
      $prepare_statement =
      "SELECT
      id FROM image
-     WHERE owner_id=? AND owner_group=?";
+     WHERE owner_id=? AND owner_group=? AND visible=1";
      return $this->basic_count( $prepare_statement );
     }
     /**
@@ -98,8 +98,9 @@ class image_list
      */
     public function load()
     {
-     $where_statement = 
-     "WHERE owner_id=? AND owner_group=?";
+     $where_statement =
+     "WHERE owner_id=? AND owner_group=? AND visible=1
+     ORDER BY upload_stamp DESC";
      return $this->list_load( $where_statement );
     }
 }?>

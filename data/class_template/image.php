@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of untitledModel.
  *
- * Automatically generated on 11.12.2014, 16:30:50 with ArgoUML PHP module 
+ * Automatically generated on 11.04.2017, 16:16:49 with ArgoUML PHP module 
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -137,6 +137,14 @@ class generated_image
      * @var Integer
      */
     private $clicked = null;
+
+    /**
+     * Short description of attribute visible
+     *
+     * @access public
+     * @var Integer
+     */
+    public $visible = null;
 
     // --- OPERATIONS ---
 

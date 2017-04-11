@@ -438,7 +438,6 @@ class generated_control_time_table_item
       else
       {
       $this->db_warning->not_found();
-      echo "Fehler !!";
       }
       $mysqli->close();
       }
