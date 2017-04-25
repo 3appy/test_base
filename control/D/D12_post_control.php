@@ -183,6 +183,7 @@ class D12_post_control
      $document->set_size( $this->file_size );
      $document->set_file_error( $this->file_error );
      $document->set_text( $this->text );
+     $document->set_visible( (int)1 );
      
      if ( $this->header == "" )
      { $document->set_header( $document->get_upload_file_name() ); }

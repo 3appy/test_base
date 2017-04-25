@@ -182,6 +182,7 @@ class C10_post_control
      $image->set_size( $this->file_size );
      $image->set_file_error( $this->file_error );
      $image->set_text( $this->text );
+     $image->set_visible( (int)1 );
      
      if ( $this->header == "" )
      { $image->set_header( $image->get_upload_file_name() ); }

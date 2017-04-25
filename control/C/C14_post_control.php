@@ -182,6 +182,7 @@ class C14_post_control
      $video->set_size( $this->file_size );
      $video->set_file_error( $this->file_error );
      $video->set_text( $this->text );
+     $video->set_visible( (int)1 );
      
      if ( $this->header == "" )
      { $video->set_header( $video->get_upload_file_name() ); }
