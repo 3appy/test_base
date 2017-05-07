@@ -22,7 +22,8 @@ require('menue_includes/A_left_menue.php');
 require('general/send_receive_button.php');
 
 $lang['C3_stephan']  = '
-Dipl.-Ing. (FH) (Gesch&#228ftsf&#252hrer)
+Stephan Carstensen <br>
+Dipl.-Ing. (FH) (CMO)
 <br><br>
 &#9679 UX Design <br>
 &#9679 Aufbau der Vertriebsstrukturen <br>
@@ -32,7 +33,8 @@ Dipl.-Ing. (FH) (Gesch&#228ftsf&#252hrer)
 <a href="mailto:sc@3appy.com?subject=Mail von der 3appy Kontaktseite">Sende mir eine Mail</a>';
 
 $lang['C3_bernd']    =  '
-Dipl.-Ing. (FH) M.Sc. IT (Gesch&#228ftsf&#252hrer)
+Bernd Schr&#246der <br>
+Dipl.-Ing. (FH) M.Sc. IT (CEO)
 <br><br>
 &#9679 IT Verantwortung <br>
 &#9679 PHP Entwicklung <br>

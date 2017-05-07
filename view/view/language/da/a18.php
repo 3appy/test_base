@@ -21,7 +21,7 @@ $lang['B0']   = 'home';
 
 $lang['C3_1_header']      = 'Pr&#230sentation';
 $lang['C3_1_info_header'] = 'For&#230ldre';
-$lang['C3_2_info']        = 'Lorem ipsum dolor sit amet, eu ipsum mollis, arcu id maecenas. Ipsum in ornare, ligula vitae pede fermentum habitasse ac nibh, ornare arcu corporis commodo id maecenas, tortor sem enim cursus morbi turpis. Rutrum morbi, vel pede, elit massa molestie erat interdum id, ligula nulla wisi vestibulum turpis id, vehicula ultrices vel urna wisi. Nulla ultricies malesuada dapibus.';
+$lang['C3_2_info']        = 'Illustration af et eksempel p&#229 for&#230lder profil og deres mulige funktioner.';
 
 $lang['A1']          = 'Skole';
 $lang['A2']          = 'L&#230rer';

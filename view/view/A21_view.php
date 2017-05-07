@@ -105,7 +105,7 @@ class A21_view
      $stephan_view->set_text( utf8_decode( $language['C3_stephan'] ) );
      
      return
-     $stephan_view->get_view() .
-     $bernd_view->get_view();
+     $bernd_view->get_view() .
+     $stephan_view->get_view();
     }
 }?>
