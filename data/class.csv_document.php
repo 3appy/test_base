@@ -196,10 +196,10 @@ class csv_document
     {
      $document_id = (int)0;
      $success     = TRUE;
-     
+
      $this->set_name( $this->get_owner_group() . "_tmp"  );
      $document_id = $this->insert();
-     
+
      $this->set_name( $this->get_owner_group() . $document_id  );
      $this->set_id( $document_id );
      
@@ -224,7 +224,7 @@ class csv_document
      if( defined('__ROOT__') == FALSE )
      { define('__ROOT__', $this->get_root() ); }
      $file_path = __ROOT__  . $this->get_file_path();
-     
+
      $myfile = fopen($file_path, "w") or die("Unable to open file!");
      $count = $this->csv_list->get_item_count();
      for ( $n=0; $n<$count; $n++ )

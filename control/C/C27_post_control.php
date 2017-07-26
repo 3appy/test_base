@@ -130,6 +130,7 @@ class C27_post_control
      $csv_file->set_file_error( $file_error );
      $csv_file->set_header( $csv_file->get_upload_file_name() );
      $csv_file->set_text( "" );
+     $csv_file->set_visible( (int)1 );
      
      if ( $csv_file->upload_document( $file_source ) )
      { 

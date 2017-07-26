@@ -199,8 +199,16 @@ class team
      require_once('class.time_table_item_list.php');
      require_once('class.team_team.php');
      
-     // Darf keine Untergruppen haben.
+     // remove all the subteams !
      $subteam_list = $this->get_subteam_list();
+     
+     for( $n = 0; $n < $subteam_list->get_item_count(); $n++ )
+     {
+         $subteam = $subteam_list->get_item( $n );
+         echo  $subteam->get_name();
+         $subteam->remove_team();
+     }
+
      if ( $subteam_list->get_item_count() == (int)0 )
      {
      // Alle events löschen

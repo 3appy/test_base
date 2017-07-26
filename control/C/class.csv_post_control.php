@@ -133,7 +133,8 @@ class csv_post_control
      $document->set_type( "csv" );
      $document->set_text( "" );
      $document->set_csv_list( $csv_table );
-     
+     $document->set_visible( (int)1 );     
+
      $document->save_csv_document();
      $document->write_csv_list_to_file();
     }
@@ -164,6 +165,7 @@ class csv_post_control
      $document->set_type( "txt" );
      $document->set_text( "" );
      $document->set_csv_list( $log_table );
+     $document->set_visible( (int)1 ); 
      
      $document->save_csv_document();
      $document->write_csv_list_to_file();
